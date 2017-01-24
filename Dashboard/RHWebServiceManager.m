@@ -366,12 +366,23 @@
     NSLog(@"Response is %@",response);
     
     NSMutableArray *Announcements = [NSMutableArray new];
+    NSMutableArray *tempMessageSettingArray = [NSMutableArray new];
     NSArray *tempArray = (NSArray *)response;
     NSDateFormatter* formatterUtc = [[NSDateFormatter alloc] init];
     NSDateFormatter* formatterLocal = [[NSDateFormatter alloc] init];
     for(NSInteger i= 0; i < tempArray.count; i++)
     {
         AnnounceObject *object = [AnnounceObject new];
+        
+        object.announcementMessageDic = [NSMutableDictionary new];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Adult"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Child15"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Child18"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"All"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Male"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Female"];
+        [object.announcementMessageDic setObject:@"deSelect" forKey:@"Both"];
+
         
         if([[[tempArray objectAtIndex:i] valueForKey:@"id"]isKindOfClass:[NSNumber class]])
         {
@@ -389,6 +400,15 @@
         else
         {
             object.announceTitle = @"";
+        }
+        
+        if([[[tempArray objectAtIndex:i] valueForKey:@"languages"]isKindOfClass:[NSString class]])
+        {
+            object.language = [NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] valueForKey:@"languages"]];
+        }
+        else
+        {
+            object.language = @"";
         }
         
         if([[[tempArray objectAtIndex:i] valueForKey:@"categoryName"]isKindOfClass:[NSString class]])
@@ -462,6 +482,59 @@
             for(NSInteger j=0; j < [[[tempArray objectAtIndex:i] valueForKey:@"images"] count]; j++)
                  object.announceImageUrlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,[[tempArray objectAtIndex:i] valueForKey:@"baseUrl"],[[[tempArray objectAtIndex:i] valueForKey:@"images"]objectAtIndex:0]];
         }
+        
+        
+        if([[[tempArray objectAtIndex:i] valueForKey:@"gender"]isKindOfClass:[NSString class]])
+        {
+            [tempMessageSettingArray removeAllObjects];
+            tempMessageSettingArray = [NSMutableArray arrayWithArray:[[[tempArray objectAtIndex:i] valueForKey:@"gender"] componentsSeparatedByString:@","]];
+            if([tempMessageSettingArray containsObject:@"both"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Male"];
+                [object.announcementMessageDic setObject:@"select" forKey:@"Female"];
+                [object.announcementMessageDic setObject:@"select" forKey:@"Both"];
+            }
+            
+            if([tempMessageSettingArray containsObject:@"male"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Male"];
+            }
+            
+            if([tempMessageSettingArray containsObject:@"female"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Female"];
+            }
+        }
+        
+        
+        if([[[tempArray objectAtIndex:i] valueForKey:@"ageGroup"]isKindOfClass:[NSString class]])
+        {
+            [tempMessageSettingArray removeAllObjects];
+            tempMessageSettingArray = [NSMutableArray arrayWithArray:[[[tempArray objectAtIndex:i] valueForKey:@"ageGroup"] componentsSeparatedByString:@","]];
+            if([tempMessageSettingArray containsObject:@"all"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Adult"];
+                [object.announcementMessageDic setObject:@"select" forKey:@"Child15"];
+                [object.announcementMessageDic setObject:@"select" forKey:@"Child18"];
+                [object.announcementMessageDic setObject:@"select" forKey:@"All"];
+            }
+            
+            if([tempMessageSettingArray containsObject:@"adult"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Adult"];
+            }
+            
+            if([tempMessageSettingArray containsObject:@"child15"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Child15"];
+            }
+            
+            if([tempMessageSettingArray containsObject:@"child15_18"])
+            {
+                [object.announcementMessageDic setObject:@"select" forKey:@"Child18"];
+            }
+        }
+
 
        // http://192.168.1.223/uploads/123_ba97b093-7c29-4c34-9aca-930e28915720_photo.jpg
         //NSLog(@"Id %@ title %@ time %@",object.announceId,object.announceTitle,object.scheduleArray);

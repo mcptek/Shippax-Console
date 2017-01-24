@@ -9,14 +9,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllAnnouncementsViewController">
             <connections>
                 <outlet property="addView" destination="vbO-iA-Xpu" id="HT6-Ls-LJ9"/>
+                <outlet property="adultSelectImageView" destination="suQ-ET-fMA" id="M1b-dT-0nV"/>
+                <outlet property="adultTransparentImageView" destination="jfR-JR-EX4" id="DkP-qL-JhP"/>
+                <outlet property="allSelectImageView" destination="eKO-9u-TGT" id="iFW-Qx-dzI"/>
+                <outlet property="allTransparentImageView" destination="wu8-kD-Z5f" id="ToW-58-Mw3"/>
                 <outlet property="announceDiscardView" destination="Col-ap-9sG" id="fxZ-vQ-pg4"/>
                 <outlet property="attachmentView" destination="3JM-Lq-Am9" id="e3Q-pJ-LAK"/>
+                <outlet property="bothSelectImageView" destination="nWN-qg-sVN" id="kQ7-xZ-eI0"/>
+                <outlet property="bothTransparentImageView" destination="xfH-Cx-GFa" id="HHY-R3-GpI"/>
                 <outlet property="bulletinImageView" destination="sE1-Lo-6jc" id="NRu-Cr-i94"/>
                 <outlet property="bulletinTableview" destination="3iC-uH-5fi" id="ONl-Xx-wS0"/>
                 <outlet property="bulletinTextView" destination="WDC-fQ-gmv" id="VIc-p1-vFS"/>
                 <outlet property="categorySearchedLabel" destination="pC1-Fr-65w" id="2ar-FY-LD3"/>
                 <outlet property="categorySelectionButton" destination="189-FF-tWr" id="gYT-vb-sVY"/>
+                <outlet property="child15SelectImageView" destination="yLa-u8-kYN" id="gtp-wf-VmV"/>
+                <outlet property="child15TransparentImageView" destination="FAD-NZ-F8k" id="gdG-mM-pcc"/>
+                <outlet property="child18SelectImageView" destination="Ow0-me-TV9" id="ptW-0S-N29"/>
+                <outlet property="child18TransparentImageView" destination="HGm-Qu-bJm" id="fUl-ld-U8g"/>
                 <outlet property="editView" destination="oCv-8d-JnE" id="OAJ-P1-ZKl"/>
+                <outlet property="femaleSelectImageView" destination="XsY-hF-Voq" id="rtn-Fs-3SQ"/>
+                <outlet property="femaleTransparentImageView" destination="fJ3-Fe-UWu" id="nf9-1d-BI8"/>
+                <outlet property="flagImageView" destination="Tsr-vh-blY" id="sou-bt-yTE"/>
+                <outlet property="maleSelectImageView" destination="1k9-qX-I7g" id="6mJ-Rq-cj7"/>
+                <outlet property="maleTransparentImageView" destination="i5e-D0-1D6" id="BzQ-Js-JZi"/>
                 <outlet property="mediaScrollView" destination="kuM-sj-QqV" id="KLl-WP-uQd"/>
                 <outlet property="myDatePickerview" destination="J3N-eN-foK" id="NGx-uQ-hnW"/>
                 <outlet property="scheduleCancelButton" destination="cfo-Ch-n8h" id="NaE-XV-wPA"/>
@@ -120,8 +135,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.19215686274509802" green="0.25490196078431371" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" id="bbK-rD-q4y">
-                            <frame key="frameInset" minX="916" minY="20" width="75" height="44"/>
+                        <view contentMode="scaleToFill" misplaced="YES" id="bbK-rD-q4y">
+                            <frame key="frameInset" minX="848" minY="20" width="75" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scheduleIcon" id="Gwj-OJ-Hc1">
@@ -145,8 +160,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" id="VBH-gW-5By">
-                            <frame key="frameInset" minX="800" minY="20" width="108" height="44"/>
+                        <view contentMode="scaleToFill" misplaced="YES" id="VBH-gW-5By">
+                            <frame key="frameInset" minX="732" minY="20" width="108" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category" id="8r8-1F-xgf">
@@ -178,7 +193,7 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" misplaced="YES" id="oCv-8d-JnE">
-                            <frame key="frameInset" minX="610" minY="20" width="67" height="44"/>
+                            <frame key="frameInset" minX="542" minY="20" width="67" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editIcon" id="BAH-5Y-u2P">
@@ -203,7 +218,7 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" misplaced="YES" id="vbO-iA-Xpu">
-                            <frame key="frameInset" minX="536" minY="20" width="67" height="44"/>
+                            <frame key="frameInset" minX="468" minY="20" width="67" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" id="PEx-gZ-JH9">
@@ -228,13 +243,42 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3EQ-hv-j1K">
-                            <frame key="frameInset" minX="677" minY="21" width="100" height="29"/>
+                            <frame key="frameInset" minX="609" minY="21" width="100" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.078431372549019607" green="0.31372549019607843" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Advance">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="advanceButtonAction:" destination="-1" eventType="touchUpInside" id="zrT-Ud-I0z"/>
+                            </connections>
                         </button>
+                        <view contentMode="scaleToFill" misplaced="YES" id="2HD-ET-gRd">
+                            <frame key="frameInset" minX="941" minY="20" width="75" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="UK Flag" id="Tsr-vh-blY">
+                                    <frame key="frameInset" minX="27" minY="5" width="20" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fN5-Wz-g9w">
+                                    <frame key="frameInset" minY="23" width="75" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xf0-Pc-fcm">
+                                    <frame key="frameInset" width="75" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="languageButtonAction:" destination="-1" eventType="touchUpInside" id="w9D-3P-84e"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
@@ -459,15 +503,15 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" misplaced="YES" id="3gH-Oc-FLm">
-                            <frame key="frameInset" minX="58" minY="138" width="600" height="428"/>
+                            <frame key="frameInset" minX="58" minY="177" width="600" height="350"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="o4c-9t-V1x">
-                                    <frame key="frameInset" width="600" height="428"/>
+                                    <frame key="frameInset" width="600" height="350"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </imageView>
-                                <view contentMode="scaleToFill" id="981-7C-ua0">
+                                <view contentMode="scaleToFill" misplaced="YES" id="981-7C-ua0">
                                     <frame key="frameInset" width="300" height="350"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -475,7 +519,7 @@
                                             <frame key="frameInset" minX="45" minY="2" width="210" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="qia-ST-d8T">
@@ -491,14 +535,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="EZl-v6-17T">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Adult" id="EZl-v6-17T">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Md9-hX-Z7C">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Md9-hX-Z7C">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -513,6 +557,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="1000" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TDC-9u-wx2">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="ageGroupButtonAction:" destination="-1" eventType="touchUpInside" id="I5a-I6-h79"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -529,14 +581,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="1JL-68-2Po">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Child18" id="1JL-68-2Po">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D7m-f3-Wdu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child 15 - 18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D7m-f3-Wdu">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -551,6 +603,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RDA-Nc-7a6">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="ageGroupButtonAction:" destination="-1" eventType="touchUpInside" id="6XQ-WL-y1n"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -567,14 +627,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="KTZ-Ve-Mkw">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Child15" id="KTZ-Ve-Mkw">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M5X-Ie-3rZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child 15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M5X-Ie-3rZ">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -589,6 +649,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="3000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jdF-uy-UcA">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="ageGroupButtonAction:" destination="-1" eventType="touchUpInside" id="uRh-D8-Z2p"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -605,14 +673,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="UrG-4d-MDA">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="All" id="UrG-4d-MDA">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yaZ-sh-k1b">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yaZ-sh-k1b">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -627,6 +695,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="4000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FJj-MK-jXw">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="ageGroupButtonAction:" destination="-1" eventType="touchUpInside" id="q8t-Td-J7n"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -641,7 +717,7 @@
                                             <frame key="frameInset" minX="45" minY="2" width="210" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="e5I-P4-dJW">
@@ -664,7 +740,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NRN-Uc-BzK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NRN-Uc-BzK">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -679,6 +755,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rQc-Un-dNA">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="genderButtonAction:" destination="-1" eventType="touchUpInside" id="6Vm-LR-OQy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -695,14 +779,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="abL-2c-Ydf">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Female" id="abL-2c-Ydf">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rv2-12-S8O">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rv2-12-S8O">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -717,6 +801,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="6000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jgw-eL-MZv">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="genderButtonAction:" destination="-1" eventType="touchUpInside" id="ab7-Tr-qPs"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -733,14 +825,14 @@
                                                     <frame key="frameInset" minX="12" minY="12" width="76" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" id="IMO-Vc-fp0">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Both" id="IMO-Vc-fp0">
                                                             <frame key="frameInset" minX="8" minY="8" width="60" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="51L-6V-Rg8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Both" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="51L-6V-Rg8">
                                                     <frame key="frameInset" minX="8" minY="75" width="84" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -755,6 +847,14 @@
                                                     <frame key="frameInset" minX="79" minY="5" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" tag="7000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0O-Xm-fkp">
+                                                    <frame key="frameInset" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="genderButtonAction:" destination="-1" eventType="touchUpInside" id="W5X-n9-yZW"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -770,12 +870,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="362" y="138"/>
+            <point key="canvasLocation" x="258" y="30"/>
         </view>
     </objects>
     <resources>
+        <image name="Adult" width="36" height="36"/>
+        <image name="All" width="35" height="36"/>
         <image name="Bg" width="682" height="512"/>
+        <image name="Both" width="35" height="36"/>
+        <image name="Child15" width="43" height="37"/>
+        <image name="Child18" width="32" height="36"/>
+        <image name="Female" width="37" height="37"/>
         <image name="Male" width="37" height="37"/>
+        <image name="UK Flag" width="32" height="32"/>
         <image name="addIcon" width="19" height="19"/>
         <image name="addImage" width="14" height="11"/>
         <image name="appLogo" width="310" height="64"/>

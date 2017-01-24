@@ -17,5 +17,7 @@
 @property(strong,nonatomic) NSString *announceCategory;
 @property(strong,nonatomic) NSMutableArray *scheduleArray;
 @property (strong,nonatomic) NSString *scheduleTime;
+@property (strong,nonatomic) NSString *language;
+@property (strong,nonatomic) NSMutableDictionary *announcementMessageDic;
 
 @end
