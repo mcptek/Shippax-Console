@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -42,8 +42,8 @@
                 <outlet property="segmentMessagingView" destination="3gH-Oc-FLm" id="vMO-Ap-JcF"/>
                 <outlet property="selectedCategoryLabel" destination="0AT-Xh-SeN" id="zqo-1f-rfc"/>
                 <outlet property="sendAnnouncementView" destination="oii-Ra-n9m" id="qBH-Of-gXV"/>
-                <outlet property="senderButton" destination="1Dx-c3-QeW" id="EGy-Mj-1PV"/>
                 <outlet property="senderTextfield" destination="b4G-hi-g4Q" id="z6T-Bb-lvI"/>
+                <outlet property="testUserSelectButton" destination="ucx-wV-mua" id="91F-dk-4il"/>
                 <outlet property="titleTextField" destination="T4f-cH-IW0" id="Vgp-El-A23"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -246,7 +246,7 @@
                             <frame key="frameInset" minX="609" minY="21" width="100" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.078431372549019607" green="0.31372549019607843" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Advance">
+                            <state key="normal" title="Recipient">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -297,21 +297,13 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All" minimumFontSize="17" id="b4G-hi-g4Q">
+                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All" minimumFontSize="17" id="b4G-hi-g4Q">
                                     <frame key="frameInset" minX="43" minY="10" width="642" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Dx-c3-QeW">
-                                    <frame key="frameInset" minX="43" minY="10" width="26" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="All"/>
-                                    <connections>
-                                        <action selector="senderButtonAction:" destination="-1" eventType="touchUpInside" id="8uT-jy-F7d"/>
-                                    </connections>
-                                </button>
                                 <view contentMode="scaleToFill" id="DXv-Ht-8e9">
                                     <frame key="frameInset" minX="15" minY="46" width="670" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -512,7 +504,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" misplaced="YES" id="981-7C-ua0">
-                                    <frame key="frameInset" width="300" height="350"/>
+                                    <frame key="frameInset" width="300" height="280"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rn5-7R-hO4">
@@ -709,8 +701,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="aK0-1v-KFF">
-                                    <frame key="frameInset" minX="300" width="300" height="350"/>
+                                <view contentMode="scaleToFill" misplaced="YES" id="aK0-1v-KFF">
+                                    <frame key="frameInset" minX="300" width="300" height="280"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iuu-0h-X9g">
@@ -861,6 +853,50 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vg8-4n-OHF">
+                                    <frame key="frameInset" minX="388" minY="297" width="76" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.32549019607843138" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="OK">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="messageSettinbgOkayButtonAction:" destination="-1" eventType="touchUpInside" id="ZMk-Wi-Zfg"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0U9-Pd-iMc">
+                                    <frame key="frameInset" minX="504" minY="297" width="76" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="messageSettingCancelButtonAction:" destination="-1" eventType="touchUpInside" id="WhO-Xj-nPO"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" misplaced="YES" id="YKq-Sb-l4m">
+                                    <frame key="frameInset" minX="47" minY="302" width="20" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ucx-wV-mua">
+                                            <frame key="frameInset" width="20" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="check-screen"/>
+                                            <connections>
+                                                <action selector="testUserSelectionButtonAction:" destination="-1" eventType="touchUpInside" id="dBL-hA-0cQ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Send to test user(s) only." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aV0-16-AnD">
+                                    <frame key="frameInset" minX="75" minY="302" width="193" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -887,6 +923,7 @@
         <image name="addImage" width="14" height="11"/>
         <image name="appLogo" width="310" height="64"/>
         <image name="category" width="108" height="18"/>
+        <image name="check-screen" width="18" height="18"/>
         <image name="check-sign" width="32" height="32"/>
         <image name="delete" width="15" height="16"/>
         <image name="editIcon" width="16" height="18"/>

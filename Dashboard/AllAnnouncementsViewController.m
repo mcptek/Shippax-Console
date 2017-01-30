@@ -19,6 +19,7 @@
 @interface AllAnnouncementsViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance,RHWebServiceDelegate,UISearchBarDelegate>
 {
     BOOL viewMode,AddMode,editMode;
+    NSString *ageRecipient,*genderRecipient;
 }
 
 @property (weak , nonatomic) FSCalendar *calendar;
@@ -30,7 +31,7 @@
 @property (strong,nonatomic) NSData* pictureData;
 @property (strong,nonatomic) NSString *pickerTime;
 @property (strong,nonatomic) Reachability *internetReachability;
-@property (strong,nonatomic) NSMutableDictionary *messageSettingDic;
+@property (strong,nonatomic) NSMutableDictionary *messageSettingDic,*tempMessageSettingDic;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedCategoryLabel;
@@ -51,9 +52,7 @@
 @property (weak, nonatomic) IBOutlet UIView *sendAnnouncementView;
 @property (weak, nonatomic) IBOutlet UIButton *categorySelectionButton;
 @property (weak, nonatomic) IBOutlet UIView *announceDiscardView;
-@property (weak, nonatomic) IBOutlet UILabel *characterLeftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categorySearchedLabel;
-@property (weak, nonatomic) IBOutlet UIButton *senderButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIView *segmentMessagingView;
 @property (weak, nonatomic) IBOutlet UIImageView *adultTransparentImageView;
@@ -71,9 +70,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bothTransparentImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bothSelectImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *flagImageView;
+@property (weak, nonatomic) IBOutlet UIButton *testUserSelectButton;
 
 
-- (IBAction)senderButtonAction:(id)sender;
+
 - (IBAction)addButtonAction:(id)sender;
 - (IBAction)editButtonAction:(id)sender;
 - (IBAction)categoryButtonAction:(id)sender;
@@ -89,6 +89,9 @@
 - (IBAction)ageGroupButtonAction:(UIButton *)sender;
 - (IBAction)genderButtonAction:(UIButton *)sender;
 - (IBAction)languageButtonAction:(UIButton *)sender;
+- (IBAction)messageSettinbgOkayButtonAction:(id)sender;
+- (IBAction)messageSettingCancelButtonAction:(id)sender;
+- (IBAction)testUserSelectionButtonAction:(id)sender;
 
 
 
@@ -102,6 +105,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //en
+    
+    
     NSString *lan = [[NSUserDefaults standardUserDefaults]valueForKey:@"selectedLanguage"];
     if(lan.length == 0)
     {
@@ -162,7 +167,7 @@
 
 - (void) makeAddModeOn
 {
-    
+    [self.testUserSelectButton setBackgroundImage:[UIImage imageNamed:@"check-screen"] forState:UIControlStateNormal];
     [self.selectedDates removeAllObjects];
     
     [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
@@ -190,7 +195,7 @@
     self.announceDiscardView.hidden = NO;
     self.addView.hidden = YES;
     self.editView.hidden = YES;
-    self.senderTextfield.text = @"All";
+    self.senderTextfield.text = @"All | Both";
     self.senderTextfield.userInteractionEnabled = NO;
     self.titleTextField.text = @"";
     self.titleTextField.userInteractionEnabled = YES;
@@ -443,6 +448,7 @@
     
     AnnounceObject *announce = [self.announcementArray objectAtIndex:indexPath.row];
     self.messageSettingDic = [NSMutableDictionary dictionaryWithDictionary:announce.announcementMessageDic];
+    self.tempMessageSettingDic = [NSMutableDictionary dictionaryWithDictionary:announce.announcementMessageDic];
     [self makeRequiredChangesAsRequired];
     self.segmentMessagingView.hidden = YES;
     [self setImageForLanguage:announce.language];
@@ -451,7 +457,6 @@
     self.bulletinTextView.text = announce.announceDescription;
     self.bulletinTextView.userInteractionEnabled = NO;
     self.selectedCategoryLabel.text = announce.announceCategory;
-    self.characterLeftLabel.text = @"";
     if(announce.announceImageUrlStr.length > 0)
     {
         [self.bulletinImageView setImageWithURL:[NSURL URLWithString:announce.announceImageUrlStr]];
@@ -542,33 +547,6 @@
 
 }
 
-- (IBAction)senderButtonAction:(id)sender {
-    
-    [FTPopOverMenu setTintColor:[UIColor colorWithRed:210/255.0 green:217/255.0 blue:225.0/255.0 alpha:1]];
-    [FTPopOverMenu setTextColor:[UIColor blackColor]];
-    [FTPopOverMenu setPreferedWidth:100];
-    [FTPopOverMenu showForSender:sender withMenu:@[@"All",@"Test users"] doneBlock:^(NSInteger selectedIndex) {
-        
-        if(selectedIndex == 0)
-        {
-            [self.senderButton setTitle:@"All" forState:UIControlStateNormal];
-            CGRect frame = self.senderButton.frame;
-            frame.size.width = self.senderButton.intrinsicContentSize.width + 5;
-            self.senderButton.frame = frame;
-        }
-        else if (selectedIndex == 1)
-        {
-             [self.senderButton setTitle:@"Test users" forState:UIControlStateNormal];
-             CGRect frame = self.senderButton.frame;
-             frame.size.width = self.senderButton.intrinsicContentSize.width + 5;
-             self.senderButton.frame = frame;
-        }
-        
-    } dismissBlock:^{
-        ;
-    }];
-    
-}
 
 - (IBAction)addButtonAction:(id)sender
 {
@@ -859,7 +837,7 @@
         self.myWebservice = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypAnnouncementInsert Delegate:self];
         if(AddMode)
         {
-            if([[self.senderButton titleForState:UIControlStateNormal] isEqualToString:@"All"])
+            if([[self.testUserSelectButton backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"check-screen"]])
             {
                 [self.myWebservice sendBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/",BASE_URL_API] withImageData:self.pictureData forAPI:@"Schedule"];
             }
@@ -948,9 +926,9 @@
         if ([[self.messageSettingDic valueForKey:@"Child18"] isEqualToString:@"select"])
         {
             if(ageGroup.length > 0)
-                ageGroup = [ageGroup stringByAppendingString:@",child15_18"];
+                ageGroup = [ageGroup stringByAppendingString:@",child18"];
             else
-                ageGroup = @"child15_18";
+                ageGroup = @"child18";
         }
     }
     
@@ -1092,114 +1070,121 @@
 
 - (IBAction)ageGroupButtonAction:(UIButton *)sender
 {
-    if(sender.tag == 1000)
+    if(AddMode || editMode)
     {
-        if([[self.messageSettingDic valueForKey:@"Adult"] isEqualToString:@"select"])
+        if(sender.tag == 1000)
         {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Adult"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
+            if([[self.messageSettingDic valueForKey:@"Adult"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Adult"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
+            }
+            
         }
-        else
+        else if (sender.tag == 2000)
         {
-            [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
+            if([[self.messageSettingDic valueForKey:@"Child18"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Child18"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Child18"];
+            }
+            
+        }
+        else if (sender.tag == 3000)
+        {
+            if([[self.messageSettingDic valueForKey:@"Child15"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Child15"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Child15"];
+            }
+            
+        }
+        else if (sender.tag == 4000)
+        {
+            if([[self.messageSettingDic valueForKey:@"All"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Adult"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Child15"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Child18"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
+                [self.messageSettingDic setObject:@"select" forKey:@"Child15"];
+                [self.messageSettingDic setObject:@"select" forKey:@"Child18"];
+                [self.messageSettingDic setObject:@"select" forKey:@"All"];
+            }
         }
         
-    }
-    else if (sender.tag == 2000)
-    {
-        if([[self.messageSettingDic valueForKey:@"Child18"] isEqualToString:@"select"])
-        {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Child18"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
-        }
-        else
-        {
-            [self.messageSettingDic setObject:@"select" forKey:@"Child18"];
-        }
+        [self makeRequiredChangesAsRequired];
 
     }
-    else if (sender.tag == 3000)
-    {
-        if([[self.messageSettingDic valueForKey:@"Child15"] isEqualToString:@"select"])
-        {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Child15"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
-        }
-        else
-        {
-            [self.messageSettingDic setObject:@"select" forKey:@"Child15"];
-        }
-        
-    }
-    else if (sender.tag == 4000)
-    {
-        if([[self.messageSettingDic valueForKey:@"All"] isEqualToString:@"select"])
-        {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Adult"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Child15"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Child18"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"All"];
-        }
-        else
-        {
-            [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
-            [self.messageSettingDic setObject:@"select" forKey:@"Child15"];
-            [self.messageSettingDic setObject:@"select" forKey:@"Child18"];
-            [self.messageSettingDic setObject:@"select" forKey:@"All"];
-        }
-    }
-    
-    [self makeRequiredChangesAsRequired];
     
 
 }
 
 - (IBAction)genderButtonAction:(UIButton *)sender
 {
-    
-    if(sender.tag == 5000)
+    if(AddMode || editMode)
     {
-        if([[self.messageSettingDic valueForKey:@"Male"] isEqualToString:@"select"])
+        if(sender.tag == 5000)
         {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Male"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
+            if([[self.messageSettingDic valueForKey:@"Male"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Male"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Male"];
+            }
         }
-        else
+        else if (sender.tag == 6000)
         {
-            [self.messageSettingDic setObject:@"select" forKey:@"Male"];
+            if([[self.messageSettingDic valueForKey:@"Female"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Female"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Female"];
+            }
+            
         }
-    }
-    else if (sender.tag == 6000)
-    {
-        if([[self.messageSettingDic valueForKey:@"Female"] isEqualToString:@"select"])
+        else if (sender.tag == 7000)
         {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Female"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
-        }
-        else
-        {
-            [self.messageSettingDic setObject:@"select" forKey:@"Female"];
+            if([[self.messageSettingDic valueForKey:@"Both"] isEqualToString:@"select"])
+            {
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Male"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Female"];
+                [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
+            }
+            else
+            {
+                [self.messageSettingDic setObject:@"select" forKey:@"Male"];
+                [self.messageSettingDic setObject:@"select" forKey:@"Female"];
+                [self.messageSettingDic setObject:@"select" forKey:@"Both"];
+            }
         }
         
+        
+        [self makeRequiredChangesAsRequired];
+        
     }
-    else if (sender.tag == 7000)
-    {
-        if([[self.messageSettingDic valueForKey:@"Both"] isEqualToString:@"select"])
-        {
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Male"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Female"];
-            [self.messageSettingDic setObject:@"deSelect" forKey:@"Both"];
-        }
-        else
-        {
-            [self.messageSettingDic setObject:@"select" forKey:@"Male"];
-            [self.messageSettingDic setObject:@"select" forKey:@"Female"];
-            [self.messageSettingDic setObject:@"select" forKey:@"Both"];
-        }
-    }
-    
-    
-    [self makeRequiredChangesAsRequired];
 }
 
 
@@ -1303,6 +1288,104 @@
         self.femaleTransparentImageView.backgroundColor = [UIColor clearColor];
         self.femaleSelectImageView.hidden = YES;
     }
+    
+    [self setReceipentText];
+
+}
+
+
+-(void) setReceipentText
+{
+    ageRecipient = [NSString new];
+    genderRecipient = [NSString new];
+    ageRecipient = @"Age: ";
+    genderRecipient = @"Gender: ";
+    
+    NSString *receipientList = [NSString new];
+    NSArray *tempArray = [[self retrieveAge] componentsSeparatedByString:@","];
+    
+    if([tempArray containsObject:@"all"])
+    {
+        if(receipientList.length > 0)
+        {
+            receipientList = [receipientList stringByAppendingString:@" | Adult | Child15 | Child18"];
+        }
+        else
+        {
+            receipientList = [receipientList stringByAppendingString:@"Adult | Child15 | Child18"];
+        }
+        
+    }
+    else
+    {
+        if([tempArray containsObject:@"adult"])
+        {
+            if(receipientList.length > 0)
+                receipientList = [receipientList stringByAppendingString:@" | Adult"];
+            else
+                receipientList = [receipientList stringByAppendingString:@"Adult"];
+            
+        }
+        
+        if([tempArray containsObject:@"child15"])
+        {
+            if(receipientList.length > 0)
+                receipientList = [receipientList stringByAppendingString:@" | Child15"];
+            else
+                receipientList = [receipientList stringByAppendingString:@"Child15"];
+            
+        }
+        
+        if([tempArray containsObject:@"child18"])
+        {
+            if(receipientList.length > 0)
+                receipientList = [receipientList stringByAppendingString:@" | Child18"];
+            else
+                receipientList = [receipientList stringByAppendingString:@"Child18"];
+            
+        }
+        
+        
+    }
+    
+    ageRecipient = [ageRecipient stringByAppendingString:receipientList];
+    
+    
+    tempArray = [[self retrieveGender] componentsSeparatedByString:@","];
+    
+    if([tempArray containsObject:@"both"])
+    {
+        if(receipientList.length > 0)
+            receipientList = [receipientList stringByAppendingString:@" | Male | Female"];
+        else
+            receipientList = [receipientList stringByAppendingString:@"Male | Female"];
+        
+        genderRecipient = [genderRecipient stringByAppendingString:@"Male | Female"];
+    }
+    else
+    {
+        if([tempArray containsObject:@"male"])
+        {
+            if(receipientList.length > 0)
+                receipientList = [receipientList stringByAppendingString:@" | Male"];
+            else
+                receipientList = [receipientList stringByAppendingString:@"Male"];
+            genderRecipient = [genderRecipient stringByAppendingString:@"Male"];
+        }
+        
+        if([tempArray containsObject:@"female"])
+        {
+            if(receipientList.length > 0)
+                receipientList = [receipientList stringByAppendingString:@" | Female"];
+            else
+                receipientList = [receipientList stringByAppendingString:@"Female"];
+            genderRecipient = [genderRecipient stringByAppendingString:@"Female"];
+            
+        }
+        
+    }
+    
+    self.senderTextfield.text = receipientList;
 
 }
 
@@ -1365,8 +1448,89 @@
                            
                            
                        }];
-    
+}
 
+- (IBAction)messageSettinbgOkayButtonAction:(id)sender
+{
+    if(AddMode || editMode)
+    {
+        NSString *message = [NSString new];
+        NSString *title = [NSString new];
+        if([self retrieveAge].length == 0 && [self retrieveGender].length == 0)
+        {
+            message = @"Please select both Age and Gender";
+            title = @"Error";
+        }
+        else if ([self retrieveAge].length == 0 )
+        {
+            message = @"Please select Age";
+            title = @"Error";
+        }
+        else if ([self retrieveGender].length == 0 )
+        {
+            message = @"Please select Gender";
+            title = @"Error";
+        }
+        else
+        {
+            message = [NSString stringWithFormat:@"The bulletin will be sent to %@ %@ group.",ageRecipient,genderRecipient];
+            title = @"Saved";
+            
+        }
+        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:title
+                                     message:message
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Okay"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        
+                                        [self dismissViewControllerAnimated:YES completion:nil];
+                                        if([title isEqualToString:@"Saved"])
+                                            self.segmentMessagingView.hidden = YES;
+                                    }];
+        
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+}
+
+- (IBAction)messageSettingCancelButtonAction:(id)sender {
+    
+    if(editMode)
+    {
+        self.messageSettingDic = [NSMutableDictionary dictionaryWithDictionary:self.tempMessageSettingDic];
+        [self makeRequiredChangesAsRequired];
+        self.segmentMessagingView.hidden = YES;
+    }
+    else if (AddMode)
+    {
+        [self.messageSettingDic setObject:@"select" forKey:@"Adult"];
+        [self.messageSettingDic setObject:@"select" forKey:@"Child15"];
+        [self.messageSettingDic setObject:@"select" forKey:@"Child18"];
+        [self.messageSettingDic setObject:@"select" forKey:@"All"];
+        [self.messageSettingDic setObject:@"select" forKey:@"Male"];
+        [self.messageSettingDic setObject:@"select" forKey:@"Female"];
+        [self.messageSettingDic setObject:@"select" forKey:@"Both"];
+        [self makeRequiredChangesAsRequired];
+        self.segmentMessagingView.hidden = YES;
+    }
+}
+
+- (IBAction)testUserSelectionButtonAction:(id)sender
+{
+    if([[self.testUserSelectButton backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"check-screen"]])
+    {
+        [self.testUserSelectButton setBackgroundImage:[UIImage imageNamed:@"check-icon"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.testUserSelectButton setBackgroundImage:[UIImage imageNamed:@"check-screen"] forState:UIControlStateNormal];
+    }
 }
 
 

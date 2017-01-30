@@ -529,7 +529,7 @@
                 [object.announcementMessageDic setObject:@"select" forKey:@"Child15"];
             }
             
-            if([tempMessageSettingArray containsObject:@"child15_18"])
+            if([tempMessageSettingArray containsObject:@"child18"])
             {
                 [object.announcementMessageDic setObject:@"select" forKey:@"Child18"];
             }
