@@ -575,7 +575,7 @@
     self.myDatePickerview.userInteractionEnabled = YES;
     self.categorySelectionButton.userInteractionEnabled = YES;
     self.scheduleSaveView.hidden = NO;
-    //self.characterLeftLabel.text = [NSString stringWithFormat:@"[Characters left %lu]", 1000 - self.bulletinTextView.text.length];
+    
 }
 
 - (IBAction)categoryButtonAction:(id)sender
@@ -766,7 +766,7 @@
              [NSCharacterSet whitespaceCharacterSet]];
     
 
-    if(title.length > 0 && des.length > 0)
+    if(title.length > 0 && des.length > 0 && [self retrieveAge].length > 0 && [self retrieveGender].length > 0)
     {
         [self.formatter setDateFormat:@"HH:mm:ss"];
         self.pickerTime = [self.formatter stringFromDate:self.myDatePickerview.date];
@@ -833,26 +833,83 @@
         
         
         
-        [SVProgressHUD show];
         self.myWebservice = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypAnnouncementInsert Delegate:self];
         if(AddMode)
         {
-            if([[self.testUserSelectButton backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"check-screen"]])
-            {
-                [self.myWebservice sendBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/",BASE_URL_API] withImageData:self.pictureData forAPI:@"Schedule"];
-            }
-            else
-            {
-                [self.myWebservice sendBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/",BASE_URL_API] withImageData:self.pictureData forAPI:@"targeted"];
-            }
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"Send bulletin"
+                                         message:[NSString stringWithFormat:@"The bulletin will be sent to %@ %@ group.",ageRecipient,genderRecipient]
+                                         preferredStyle:UIAlertControllerStyleAlert];
             
+            UIAlertAction* yesButton = [UIAlertAction
+                                        actionWithTitle:@"Yes"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            
+                                            [SVProgressHUD show];
+                                            if([[self.testUserSelectButton backgroundImageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"check-screen"]])
+                                            {
+                                                [self.myWebservice sendBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/",BASE_URL_API] withImageData:self.pictureData forAPI:@"Schedule"];
+                                            }
+                                            else
+                                            {
+                                                [self.myWebservice sendBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/",BASE_URL_API] withImageData:self.pictureData forAPI:@"targeted"];
+                                            }
+                                            
+                                            [self dismissViewControllerAnimated:YES completion:nil];
+
+                                        }];
+            
+            UIAlertAction* noButton = [UIAlertAction
+                                        actionWithTitle:@"No"
+                                        style:UIAlertActionStyleCancel
+                                        handler:^(UIAlertAction * action) {
+                                            
+                                            [self dismissViewControllerAnimated:YES completion:nil];
+                                            
+                                        }];
+            
+            [alert addAction:noButton];
+            [alert addAction:yesButton];
+            
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else
         {
-            NSIndexPath *selectedIndexPath = [self.bulletinTableview indexPathForSelectedRow];
-            AnnounceObject *announce = [self.announcementArray objectAtIndex:selectedIndexPath.row];
-            [dic setObject:announce.announceId forKey:@"id"];
-            [self.myWebservice updateBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/update",BASE_URL_API] withImageData:self.pictureData];
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"Send bulletin"
+                                         message:[NSString stringWithFormat:@"The bulletin will be sent to %@ %@ group.",ageRecipient,genderRecipient]
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* yesButton = [UIAlertAction
+                                        actionWithTitle:@"Yes"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            
+                                            [SVProgressHUD show];
+                                            NSIndexPath *selectedIndexPath = [self.bulletinTableview indexPathForSelectedRow];
+                                            AnnounceObject *announce = [self.announcementArray objectAtIndex:selectedIndexPath.row];
+                                            [dic setObject:announce.announceId forKey:@"id"];
+                                            [self.myWebservice updateBulletinWithData:dic withUrlStr:[NSString stringWithFormat:@"%@/api/bulletin/update",BASE_URL_API] withImageData:self.pictureData];
+                                            [self dismissViewControllerAnimated:YES completion:nil];
+                                            
+                                        }];
+            
+            UIAlertAction* noButton = [UIAlertAction
+                                       actionWithTitle:@"No"
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction * action) {
+                                           
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                           
+                                       }];
+            
+            [alert addAction:noButton];
+            [alert addAction:yesButton];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+
+            
         }
         
     }
@@ -865,9 +922,11 @@
                message = @"Please enter announcement title.";
             else if ([self.selectedCategoryLabel.text isEqualToString:@"Offers"])
                 message = @"Please enter offer title.";
-
-
         }
+        else if ([self retrieveAge].length == 0)
+            message = @"Please select Age";
+        else if ([self retrieveGender].length == 0)
+            message = @"Please select Gender";
         else
         {
             if([self.selectedCategoryLabel.text isEqualToString:@"Announcements"])
