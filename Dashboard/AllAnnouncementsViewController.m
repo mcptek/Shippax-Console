@@ -106,6 +106,7 @@
     // Do any additional setup after loading the view from its nib.
     //en
     
+    NSLog(@"Base url is %@",BASE_URL_API);
     
     NSString *lan = [[NSUserDefaults standardUserDefaults]valueForKey:@"selectedLanguage"];
     if(lan.length == 0)
@@ -161,6 +162,7 @@
 {
     self.bulletinTextView.textColor = [UIColor whiteColor];
 
+
 }
 
 
@@ -208,6 +210,9 @@
     NSString *lan = [[NSUserDefaults standardUserDefaults]valueForKey:@"selectedLanguage"];
     [self setImageForLanguage:lan];
     [self makeRequiredChangesAsRequired];
+    
+    [self.bulletinImageView cancelImageRequestOperation];
+
 
 
 }
@@ -1451,62 +1456,66 @@
 
 - (IBAction)languageButtonAction:(UIButton *)sender
 {
-   // FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
-    [FTPopOverMenu setTintColor:[UIColor colorWithRed:210/255.0 green:217/255.0 blue:225.0/255.0 alpha:1]];
-    [FTPopOverMenu setTextColor:[UIColor blackColor]];
-    [FTPopOverMenu setPreferedWidth:170];
-    [FTPopOverMenu showForSender:sender
-                        withMenu:@[@"English",@"German",@"Faroese",@"Danish"]
-                  imageNameArray:@[@"UK Flag",@"German Flag",@"Farose Flag",@"Danish flag"]
-                       doneBlock:^(NSInteger selectedIndex) {
-                           
-                           NSString *message;
-                           if(selectedIndex == 0)
-                           {
-                               //FTPopOverMenuCell.
-                               message = @"English language saved.";
-                               [[NSUserDefaults standardUserDefaults]setObject:@"en" forKey:@"selectedLanguage"];
-                               [self setImageForLanguage:@"en"];
-                           }
-                           else if(selectedIndex == 1)
-                           {
-                               message = @"German language saved.";
-                               [[NSUserDefaults standardUserDefaults]setObject:@"de" forKey:@"selectedLanguage"];
-                               [self setImageForLanguage:@"de"];
-                           }
-                           else if(selectedIndex == 2)
-                           {
-                               message = @"Faroese language saved.";
-                               [[NSUserDefaults standardUserDefaults]setObject:@"fo" forKey:@"selectedLanguage"];
-                                [self setImageForLanguage:@"fo"];
-                           }
-                           else if(selectedIndex == 3)
-                           {
-                               message = @"Danish language saved.";
-                               [[NSUserDefaults standardUserDefaults]setObject:@"da" forKey:@"selectedLanguage"];
-                                [self setImageForLanguage:@"da"];
-                           }
-                           
-                           [[NSUserDefaults standardUserDefaults]synchronize];
-                           
-                           
-                           UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
-                                                                                          message:message
-                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                           
-                           [self presentViewController:alert animated:YES completion:nil];
-                           
-                           int duration = 2; // duration in seconds
-                           
-                           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                               [alert dismissViewControllerAnimated:YES completion:nil];
-                           });
-
-                           
-                       } dismissBlock:^{
-                           
-                           
-                       }];
+    if(AddMode || editMode)
+    {
+        // FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
+        [FTPopOverMenu setTintColor:[UIColor colorWithRed:210/255.0 green:217/255.0 blue:225.0/255.0 alpha:1]];
+        [FTPopOverMenu setTextColor:[UIColor blackColor]];
+        [FTPopOverMenu setPreferedWidth:170];
+        [FTPopOverMenu showForSender:sender
+                            withMenu:@[@"English",@"German",@"Faroese",@"Danish"]
+                      imageNameArray:@[@"UK Flag",@"German Flag",@"Farose Flag",@"Danish flag"]
+                           doneBlock:^(NSInteger selectedIndex) {
+                               
+                               NSString *message;
+                               if(selectedIndex == 0)
+                               {
+                                   //FTPopOverMenuCell.
+                                   message = @"English language saved.";
+                                   [[NSUserDefaults standardUserDefaults]setObject:@"en" forKey:@"selectedLanguage"];
+                                   [self setImageForLanguage:@"en"];
+                               }
+                               else if(selectedIndex == 1)
+                               {
+                                   message = @"German language saved.";
+                                   [[NSUserDefaults standardUserDefaults]setObject:@"de" forKey:@"selectedLanguage"];
+                                   [self setImageForLanguage:@"de"];
+                               }
+                               else if(selectedIndex == 2)
+                               {
+                                   message = @"Faroese language saved.";
+                                   [[NSUserDefaults standardUserDefaults]setObject:@"fo" forKey:@"selectedLanguage"];
+                                   [self setImageForLanguage:@"fo"];
+                               }
+                               else if(selectedIndex == 3)
+                               {
+                                   message = @"Danish language saved.";
+                                   [[NSUserDefaults standardUserDefaults]setObject:@"da" forKey:@"selectedLanguage"];
+                                   [self setImageForLanguage:@"da"];
+                               }
+                               
+                               [[NSUserDefaults standardUserDefaults]synchronize];
+                               
+                               
+                               UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                                              message:message
+                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                               
+                               [self presentViewController:alert animated:YES completion:nil];
+                               
+                               int duration = 2; // duration in seconds
+                               
+                               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                               });
+                               
+                               
+                           } dismissBlock:^{
+                               
+                               
+                           }];
+    }
+    
 }
 
 - (IBAction)messageSettinbgOkayButtonAction:(id)sender
