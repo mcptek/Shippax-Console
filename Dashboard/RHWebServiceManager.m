@@ -168,7 +168,9 @@
 
 -(void) sendBulletinWithData:(NSDictionary *)postData withUrlStr:(NSString *)urlStr withImageData:(NSData *)imageData forAPI:(NSString *)apiName
 {
-        
+    
+    
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:urlStr]];
     
     AFHTTPRequestOperation *op = [manager POST:apiName parameters:postData constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {

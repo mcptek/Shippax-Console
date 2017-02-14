@@ -48,6 +48,16 @@
 		BB38EEB41D6D71C600657DA0 /* UIView+FSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB38EEA31D6D71C600657DA0 /* UIView+FSExtension.m */; };
 		BB38EEB81D6DA0B000657DA0 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB38EEB61D6DA0B000657DA0 /* ScheduleTableViewCell.m */; };
 		BB38EEB91D6DA0B000657DA0 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB38EEB71D6DA0B000657DA0 /* ScheduleTableViewCell.xib */; };
+		BB656CA51E51E134007F165E /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C901E51E134007F165E /* IQBarButtonItem.m */; };
+		BB656CA61E51E134007F165E /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BB656C911E51E134007F165E /* IQKeyboardManager.bundle */; };
+		BB656CA71E51E134007F165E /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C931E51E134007F165E /* IQKeyboardManager.m */; };
+		BB656CA81E51E134007F165E /* IQSegmentedNextPrevious.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C971E51E134007F165E /* IQSegmentedNextPrevious.m */; };
+		BB656CA91E51E134007F165E /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C991E51E134007F165E /* IQTitleBarButtonItem.m */; };
+		BB656CAA1E51E134007F165E /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C9B1E51E134007F165E /* IQToolbar.m */; };
+		BB656CAB1E51E134007F165E /* NSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656C9E1E51E134007F165E /* NSArray+Sort.m */; };
+		BB656CAC1E51E134007F165E /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA01E51E134007F165E /* UIView+Hierarchy.m */; };
+		BB656CAD1E51E134007F165E /* UIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA21E51E134007F165E /* UIView+IQKeyboardToolbar.m */; };
+		BB656CAE1E51E134007F165E /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA41E51E134007F165E /* UIWindow+Hierarchy.m */; };
 		BB6A79CA1D7DA1B600ADD516 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6A79C91D7DA1B600ADD516 /* FTPopOverMenu.m */; };
 		BB72D7251D7ADD0200A8F45D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BB72D7241D7ADD0200A8F45D /* Reachability.m */; };
 		BBD639B71D6B08640007B268 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD639B61D6B08640007B268 /* main.m */; };
@@ -144,6 +154,28 @@
 		BB38EEB51D6DA0B000657DA0 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
 		BB38EEB61D6DA0B000657DA0 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
 		BB38EEB71D6DA0B000657DA0 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		BB656C8F1E51E134007F165E /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
+		BB656C901E51E134007F165E /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
+		BB656C911E51E134007F165E /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		BB656C921E51E134007F165E /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
+		BB656C931E51E134007F165E /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
+		BB656C941E51E134007F165E /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		BB656C951E51E134007F165E /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		BB656C961E51E134007F165E /* IQSegmentedNextPrevious.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQSegmentedNextPrevious.h; sourceTree = "<group>"; };
+		BB656C971E51E134007F165E /* IQSegmentedNextPrevious.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQSegmentedNextPrevious.m; sourceTree = "<group>"; };
+		BB656C981E51E134007F165E /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		BB656C991E51E134007F165E /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		BB656C9A1E51E134007F165E /* IQToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQToolbar.h; sourceTree = "<group>"; };
+		BB656C9B1E51E134007F165E /* IQToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQToolbar.m; sourceTree = "<group>"; };
+		BB656C9C1E51E134007F165E /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
+		BB656C9D1E51E134007F165E /* NSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Sort.h"; sourceTree = "<group>"; };
+		BB656C9E1E51E134007F165E /* NSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Sort.m"; sourceTree = "<group>"; };
+		BB656C9F1E51E134007F165E /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		BB656CA01E51E134007F165E /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
+		BB656CA11E51E134007F165E /* UIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		BB656CA21E51E134007F165E /* UIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		BB656CA31E51E134007F165E /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		BB656CA41E51E134007F165E /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		BB6A79C81D7DA1B600ADD516 /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
 		BB6A79C91D7DA1B600ADD516 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
 		BB72D7231D7ADD0200A8F45D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -278,6 +310,35 @@
 			path = FSCalendar;
 			sourceTree = "<group>";
 		};
+		BB656C8E1E51E134007F165E /* IQKeyBoardManager */ = {
+			isa = PBXGroup;
+			children = (
+				BB656C8F1E51E134007F165E /* IQBarButtonItem.h */,
+				BB656C901E51E134007F165E /* IQBarButtonItem.m */,
+				BB656C911E51E134007F165E /* IQKeyboardManager.bundle */,
+				BB656C921E51E134007F165E /* IQKeyboardManager.h */,
+				BB656C931E51E134007F165E /* IQKeyboardManager.m */,
+				BB656C941E51E134007F165E /* IQKeyboardManagerConstants.h */,
+				BB656C951E51E134007F165E /* IQKeyboardManagerConstantsInternal.h */,
+				BB656C961E51E134007F165E /* IQSegmentedNextPrevious.h */,
+				BB656C971E51E134007F165E /* IQSegmentedNextPrevious.m */,
+				BB656C981E51E134007F165E /* IQTitleBarButtonItem.h */,
+				BB656C991E51E134007F165E /* IQTitleBarButtonItem.m */,
+				BB656C9A1E51E134007F165E /* IQToolbar.h */,
+				BB656C9B1E51E134007F165E /* IQToolbar.m */,
+				BB656C9C1E51E134007F165E /* KeyboardManager.h */,
+				BB656C9D1E51E134007F165E /* NSArray+Sort.h */,
+				BB656C9E1E51E134007F165E /* NSArray+Sort.m */,
+				BB656C9F1E51E134007F165E /* UIView+Hierarchy.h */,
+				BB656CA01E51E134007F165E /* UIView+Hierarchy.m */,
+				BB656CA11E51E134007F165E /* UIView+IQKeyboardToolbar.h */,
+				BB656CA21E51E134007F165E /* UIView+IQKeyboardToolbar.m */,
+				BB656CA31E51E134007F165E /* UIWindow+Hierarchy.h */,
+				BB656CA41E51E134007F165E /* UIWindow+Hierarchy.m */,
+			);
+			path = IQKeyBoardManager;
+			sourceTree = "<group>";
+		};
 		BB6A79C71D7DA1B600ADD516 /* FTPopOverMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +389,7 @@
 				BBD639C11D6B08640007B268 /* Dashboard.xcdatamodeld */,
 				BB31B1341D70401800E8ECBE /* RHWebServiceManager.h */,
 				BB31B1351D70401800E8ECBE /* RHWebServiceManager.m */,
+				BB656C8E1E51E134007F165E /* IQKeyBoardManager */,
 				BB6A79C71D7DA1B600ADD516 /* FTPopOverMenu */,
 				BB38EE831D6D71C600657DA0 /* FSCalendar */,
 				BB31B1371D70407900E8ECBE /* AFNetworking */,
@@ -413,6 +475,7 @@
 				BBD639C51D6B08640007B268 /* Assets.xcassets in Resources */,
 				BBD639C01D6B08640007B268 /* Main.storyboard in Resources */,
 				BB38EEB31D6D71C600657DA0 /* Info.plist in Resources */,
+				BB656CA61E51E134007F165E /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +489,7 @@
 				BB31B1531D70407900E8ECBE /* AFURLSessionManager.m in Sources */,
 				BB31B14F1D70407900E8ECBE /* AFSecurityPolicy.m in Sources */,
 				BB31B1291D703FFD00E8ECBE /* SVIndefiniteAnimatedView.m in Sources */,
+				BB656CA71E51E134007F165E /* IQKeyboardManager.m in Sources */,
 				BB38EEAD1D6D71C600657DA0 /* FSCalendarConstance.m in Sources */,
 				BBD639D21D6B08940007B268 /* AllAnnouncementsViewController.m in Sources */,
 				BB38EEA81D6D71C600657DA0 /* FSCalendar.m in Sources */,
@@ -434,10 +498,12 @@
 				BB38EEB11D6D71C600657DA0 /* FSCalendarScopeHandle.m in Sources */,
 				BB38EEA61D6D71C600657DA0 /* FSCalendar+Deprecated.m in Sources */,
 				BB31B14B1D70407900E8ECBE /* AFHTTPRequestOperation.m in Sources */,
+				BB656CAB1E51E134007F165E /* NSArray+Sort.m in Sources */,
 				BB31B12F1D703FFD00E8ECBE /* UIButton+AFNetworking.m in Sources */,
 				BB38EEB21D6D71C600657DA0 /* FSCalendarStickyHeader.m in Sources */,
 				BB6A79CA1D7DA1B600ADD516 /* FTPopOverMenu.m in Sources */,
 				BB31B14D1D70407900E8ECBE /* AFHTTPSessionManager.m in Sources */,
+				BB656CAE1E51E134007F165E /* UIWindow+Hierarchy.m in Sources */,
 				BB31B1301D703FFD00E8ECBE /* UIImageView+AFNetworking.m in Sources */,
 				BB31B1311D703FFD00E8ECBE /* UIProgressView+AFNetworking.m in Sources */,
 				BBD639DC1D6B1B240007B268 /* AllAnnouncementCellTableViewCell.m in Sources */,
@@ -449,18 +515,24 @@
 				BB31B1511D70407900E8ECBE /* AFURLRequestSerialization.m in Sources */,
 				BB38EEAA1D6D71C600657DA0 /* FSCalendarAppearance.m in Sources */,
 				BB31B1521D70407900E8ECBE /* AFURLResponseSerialization.m in Sources */,
+				BB656CA51E51E134007F165E /* IQBarButtonItem.m in Sources */,
 				BBD639BA1D6B08640007B268 /* AppDelegate.m in Sources */,
+				BB656CA91E51E134007F165E /* IQTitleBarButtonItem.m in Sources */,
 				BB38EEA71D6D71C600657DA0 /* FSCalendar+IBExtension.m in Sources */,
 				BB38EEAF1D6D71C600657DA0 /* FSCalendarFlowLayout.m in Sources */,
 				BB31B1501D70407900E8ECBE /* AFURLConnectionOperation.m in Sources */,
 				BB38EEB81D6DA0B000657DA0 /* ScheduleTableViewCell.m in Sources */,
 				BB31B1321D703FFD00E8ECBE /* UIRefreshControl+AFNetworking.m in Sources */,
+				BB656CAC1E51E134007F165E /* UIView+Hierarchy.m in Sources */,
+				BB656CAA1E51E134007F165E /* IQToolbar.m in Sources */,
 				BB38EEB41D6D71C600657DA0 /* UIView+FSExtension.m in Sources */,
 				BB31B12D1D703FFD00E8ECBE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BB38EEAC1D6D71C600657DA0 /* FSCalendarCollectionView.m in Sources */,
 				BB31B12E1D703FFD00E8ECBE /* UIAlertView+AFNetworking.m in Sources */,
+				BB656CA81E51E134007F165E /* IQSegmentedNextPrevious.m in Sources */,
 				BBD639C31D6B08640007B268 /* Dashboard.xcdatamodeld in Sources */,
 				BBD639B71D6B08640007B268 /* main.m in Sources */,
+				BB656CAD1E51E134007F165E /* UIView+IQKeyboardToolbar.m in Sources */,
 				BB31B1361D70401800E8ECBE /* RHWebServiceManager.m in Sources */,
 				BB38EEAB1D6D71C600657DA0 /* FSCalendarCell.m in Sources */,
 				BB38EEB01D6D71C600657DA0 /* FSCalendarHeader.m in Sources */,

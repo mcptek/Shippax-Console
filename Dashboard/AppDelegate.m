@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AllAnnouncementsViewController.h"
-
+#import "IQKeyboardManager.h"
 
 
 
@@ -21,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //[[IQKeyboardManager sharedManager] setEnable:YES];
+    //[[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    //[[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:YES];
     
     AllAnnouncementsViewController *masterVc = [[AllAnnouncementsViewController alloc]initWithNibName:@"AllAnnouncementsViewController" bundle:nil];
     UINavigationController *masterNavigation = [[UINavigationController alloc]initWithRootViewController:masterVc];
