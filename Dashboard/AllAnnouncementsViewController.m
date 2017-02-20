@@ -32,7 +32,7 @@
 @property (strong,nonatomic) NSString *pickerTime;
 @property (strong,nonatomic) Reachability *internetReachability;
 @property (strong,nonatomic) NSMutableDictionary *messageSettingDic,*tempMessageSettingDic;
-
+@property (strong,nonatomic) UIActivityIndicatorView *indicator;
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedCategoryLabel;
 @property (weak, nonatomic) IBOutlet UITextView *bulletinTextView;
@@ -267,9 +267,9 @@
         {
             [self makeAddModeOn];
             if(AddMode)
-                message = @"Successfuly sent.";
+                message = @"Successfully sent.";
             else
-                message = @"Successfuly updated.";
+                message = @"Successfully updated.";
         }
         else
         {
@@ -303,7 +303,7 @@
     
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Error"
-                                 message:error.debugDescription
+                                 message:error.localizedDescription
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* yesButton = [UIAlertAction
@@ -325,7 +325,7 @@
     
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Message"
-                                 message:[NSString stringWithFormat:@"Error %i,Please try again later.",statusCode]
+                                 message:[NSString stringWithFormat:@"Error %li,Please try again later.",(long)statusCode]
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* yesButton = [UIAlertAction
@@ -462,9 +462,13 @@
     self.bulletinTextView.text = announce.announceDescription;
     self.bulletinTextView.userInteractionEnabled = NO;
     self.selectedCategoryLabel.text = announce.announceCategory;
+    
+    [self.bulletinImageView cancelImageRequestOperation];
+    [self.indicator removeFromSuperview];
+    
     if(announce.announceImageUrlStr.length > 0)
     {
-        [self.bulletinImageView setImageWithURL:[NSURL URLWithString:announce.announceImageUrlStr]];
+        [self loadImageWithUrlStr:announce.announceImageUrlStr]; //[self.bulletinImageView setImageWithURL:[NSURL URLWithString:announce.announceImageUrlStr]];
         self.pictureData = UIImagePNGRepresentation(self.bulletinImageView.image);
     }
     else
@@ -480,12 +484,6 @@
         self.selectedDates = [[NSMutableArray alloc]initWithArray:announce.scheduleArray];
         [self clearAllSelectedDatesOfCalender];
         
-//        NSMutableArray *selectedDates = [NSMutableArray arrayWithCapacity:announce.scheduleArray.count];
-//        [announce.scheduleArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//            [selectedDates addObject:[self.calendar stringFromDate:obj format:@"yyyy/MM/dd"]];
-//        }];
-
-        
         [self showScheduleViewWithAllowSelection:NO multipleSelectionAllowed:YES selectedDate:announce.scheduleArray Time:announce.scheduleTime];
         self.myDatePickerview.userInteractionEnabled = NO;
         self.scheduleView.hidden = NO;
@@ -496,6 +494,48 @@
     }
     
 }
+
+- (void) loadImageWithUrlStr:(NSString *)imageUrl
+{
+    
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [self.indicator setCenter:self.bulletinImageView.center];
+    [self.mediaScrollView addSubview:self.indicator];
+    [self.indicator startAnimating];
+    
+    NSURL *url = [NSURL URLWithString:imageUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [self.bulletinImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        
+        
+        [self.indicator removeFromSuperview];
+        self.bulletinImageView.image = image;
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        
+        [self.indicator removeFromSuperview];
+        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Image Download Error"
+                                     message:error.localizedDescription
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"OK"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        
+                                        [self dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
+
+    }];
+    
+    
+}
+
 
 -(void) MakeMediaScrollViewProperSized
 {
@@ -701,6 +741,7 @@
     if(self.segmentMessagingView.hidden == NO)
         self.segmentMessagingView.hidden = YES;
     
+    
     if(AddMode || editMode)
     {
         if(self.scheduleView.hidden == YES)
@@ -714,7 +755,13 @@
         {
             self.scheduleView.hidden = YES;
         }
-        
+    }
+    else
+    {
+        if(self.scheduleView.hidden == YES)
+            self.scheduleView.hidden = NO;
+        else
+            self.scheduleView.hidden = YES;
     }
 }
 
