@@ -464,6 +464,7 @@
     self.selectedCategoryLabel.text = announce.announceCategory;
     
     [self.bulletinImageView cancelImageRequestOperation];
+    self.bulletinImageView.image = nil;
     [self.indicator removeFromSuperview];
     
     if(announce.announceImageUrlStr.length > 0)
@@ -518,7 +519,7 @@
         
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Image Download Error"
-                                     message:error.localizedDescription
+                                     message:error.localizedFailureReason
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* yesButton = [UIAlertAction
@@ -961,7 +962,7 @@
         }
         
         UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:nil
+                                     alertControllerWithTitle:@"Alert"
                                      message:message
                                      preferredStyle:UIAlertControllerStyleAlert];
         
@@ -1543,22 +1544,22 @@
         if([self retrieveAge].length == 0 && [self retrieveGender].length == 0)
         {
             message = @"Please select both Age and Gender";
-            title = @"Error";
+            title = @"Alert";
         }
         else if ([self retrieveAge].length == 0 )
         {
             message = @"Please select Age";
-            title = @"Error";
+            title = @"Alert";
         }
         else if ([self retrieveGender].length == 0 )
         {
             message = @"Please select Gender";
-            title = @"Error";
+            title = @"Alert";
         }
         else
         {
             message = [NSString stringWithFormat:@"The bulletin will be sent to %@ %@ group.",ageRecipient,genderRecipient];
-            title = @"Saved";
+            title = @"Do you want to save?";
             
         }
         
@@ -1573,7 +1574,7 @@
                                     handler:^(UIAlertAction * action) {
                                         
                                         [self dismissViewControllerAnimated:YES completion:nil];
-                                        if([title isEqualToString:@"Saved"])
+                                        if([title isEqualToString:@"Do you want to save?"])
                                             self.segmentMessagingView.hidden = YES;
                                     }];
         

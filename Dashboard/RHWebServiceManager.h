@@ -13,7 +13,7 @@
 #ifdef DEBUG
 #define BASE_URL_API @"http://stage-smy-wp.mcp.com:82"
 #else
-#define BASE_URL_API @"http://stage-smy-wp.mcp.com:82"
+#define BASE_URL_API @"http://smy-wp.mcp.com:82"
 #endif
 
  
