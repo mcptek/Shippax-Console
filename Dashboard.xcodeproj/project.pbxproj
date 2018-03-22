@@ -58,8 +58,8 @@
 		BB656CAC1E51E134007F165E /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA01E51E134007F165E /* UIView+Hierarchy.m */; };
 		BB656CAD1E51E134007F165E /* UIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA21E51E134007F165E /* UIView+IQKeyboardToolbar.m */; };
 		BB656CAE1E51E134007F165E /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB656CA41E51E134007F165E /* UIWindow+Hierarchy.m */; };
-		BB6A79CA1D7DA1B600ADD516 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6A79C91D7DA1B600ADD516 /* FTPopOverMenu.m */; };
 		BB72D7251D7ADD0200A8F45D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BB72D7241D7ADD0200A8F45D /* Reachability.m */; };
+		BB915AF81E8D00630018669E /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BB915AF71E8D00630018669E /* FTPopOverMenu.m */; };
 		BBD639B71D6B08640007B268 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD639B61D6B08640007B268 /* main.m */; };
 		BBD639BA1D6B08640007B268 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD639B91D6B08640007B268 /* AppDelegate.m */; };
 		BBD639C01D6B08640007B268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD639BE1D6B08640007B268 /* Main.storyboard */; };
@@ -176,11 +176,11 @@
 		BB656CA21E51E134007F165E /* UIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		BB656CA31E51E134007F165E /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		BB656CA41E51E134007F165E /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
-		BB6A79C81D7DA1B600ADD516 /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
-		BB6A79C91D7DA1B600ADD516 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
 		BB72D7231D7ADD0200A8F45D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BB72D7241D7ADD0200A8F45D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		BBD639B21D6B08630007B268 /* Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB915AF61E8D00630018669E /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
+		BB915AF71E8D00630018669E /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
+		BBD639B21D6B08630007B268 /* Shippax Dashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shippax Dashboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD639B61D6B08640007B268 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBD639B81D6B08640007B268 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBD639B91D6B08640007B268 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -342,8 +342,8 @@
 		BB6A79C71D7DA1B600ADD516 /* FTPopOverMenu */ = {
 			isa = PBXGroup;
 			children = (
-				BB6A79C81D7DA1B600ADD516 /* FTPopOverMenu.h */,
-				BB6A79C91D7DA1B600ADD516 /* FTPopOverMenu.m */,
+				BB915AF61E8D00630018669E /* FTPopOverMenu.h */,
+				BB915AF71E8D00630018669E /* FTPopOverMenu.m */,
 			);
 			path = FTPopOverMenu;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 		BBD639B31D6B08630007B268 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BBD639B21D6B08630007B268 /* Dashboard.app */,
+				BBD639B21D6B08630007B268 /* Shippax Dashboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 			);
 			name = Dashboard;
 			productName = Dashboard;
-			productReference = BBD639B21D6B08630007B268 /* Dashboard.app */;
+			productReference = BBD639B21D6B08630007B268 /* Shippax Dashboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -439,7 +439,7 @@
 				TargetAttributes = {
 					BBD639B11D6B08630007B268 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6E6WT3QCX4;
+						DevelopmentTeam = 79YLMQ62DM;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -500,8 +500,8 @@
 				BB31B14B1D70407900E8ECBE /* AFHTTPRequestOperation.m in Sources */,
 				BB656CAB1E51E134007F165E /* NSArray+Sort.m in Sources */,
 				BB31B12F1D703FFD00E8ECBE /* UIButton+AFNetworking.m in Sources */,
+				BB915AF81E8D00630018669E /* FTPopOverMenu.m in Sources */,
 				BB38EEB21D6D71C600657DA0 /* FSCalendarStickyHeader.m in Sources */,
-				BB6A79CA1D7DA1B600ADD516 /* FTPopOverMenu.m in Sources */,
 				BB31B14D1D70407900E8ECBE /* AFHTTPSessionManager.m in Sources */,
 				BB656CAE1E51E134007F165E /* UIWindow+Hierarchy.m in Sources */,
 				BB31B1301D703FFD00E8ECBE /* UIImageView+AFNetworking.m in Sources */,
@@ -658,16 +658,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 6E6WT3QCX4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 79YLMQ62DM;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = DEBUG;
 				INFOPLIST_FILE = Dashboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mcp.consoleIpad;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fca0bc9a-2f70-4ea4-849b-f69e40ce0774";
-				PROVISIONING_PROFILE_SPECIFIER = "MCP console app profile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
+				PRODUCT_NAME = "Shippax Dashboard";
+				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
+				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -677,15 +677,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 6E6WT3QCX4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 79YLMQ62DM;
 				INFOPLIST_FILE = Dashboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mcp.consoleIpad;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fca0bc9a-2f70-4ea4-849b-f69e40ce0774";
-				PROVISIONING_PROFILE_SPECIFIER = "MCP console app profile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
+				PRODUCT_NAME = "Shippax Dashboard";
+				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
+				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

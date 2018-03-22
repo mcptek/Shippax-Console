@@ -19,5 +19,6 @@
 @property (strong,nonatomic) NSString *scheduleTime;
 @property (strong,nonatomic) NSString *language;
 @property (strong,nonatomic) NSMutableDictionary *announcementMessageDic;
+@property (strong,nonatomic) NSString *userType;
 
 @end

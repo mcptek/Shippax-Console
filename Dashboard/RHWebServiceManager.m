@@ -161,8 +161,6 @@
     }];
     
     [manager.operationQueue addOperation:operation];
-    
-    
 }
 
 
@@ -170,7 +168,7 @@
 {
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:urlStr]];
     
-    AFHTTPRequestOperation *op = [manager POST:apiName parameters:postData constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+       AFHTTPRequestOperation *op = [manager POST:apiName parameters:postData constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //do not put image inside parameters dictionary as I did, but append it!
         if(imageData.length > 0)
             [formData appendPartWithFileData:imageData name:@"image" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
@@ -392,6 +390,20 @@
             object.announceId = @"";
         }
         
+        if([[[tempArray objectAtIndex:i] valueForKey:@"isTestBulletin"]isKindOfClass:[NSNumber class]])
+        {
+            if([[[tempArray objectAtIndex:i] valueForKey:@"isTestBulletin"] isEqual:[NSNumber numberWithInteger:1]])
+                object.userType = @"Test users";
+            else
+                object.userType = @"All";
+            
+            //object.userType = [NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] valueForKey:@"id"]];
+        }
+        else
+        {
+            object.userType = @"Test users";
+        }
+        
         if([[[tempArray objectAtIndex:i] valueForKey:@"title"]isKindOfClass:[NSString class]])
         {
             object.announceTitle = [NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] valueForKey:@"title"]];
@@ -429,7 +441,16 @@
         
         if([[[tempArray objectAtIndex:i] valueForKey:@"descriptions"]isKindOfClass:[NSArray class]])
         {
-            object.announceDescription = [NSString stringWithFormat:@"%@",[[[tempArray objectAtIndex:i] valueForKey:@"descriptions"] objectAtIndex:0]];
+   
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descriptions"] count] > 0)
+            {
+                object.announceDescription = [NSString stringWithFormat:@"%@",[[[tempArray objectAtIndex:i] valueForKey:@"descriptions"] objectAtIndex:0]];
+            }
+            else
+            {
+                 object.announceDescription = @"";
+            }
         }
         else
         {
