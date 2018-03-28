@@ -436,7 +436,7 @@
     if(announce.announceImageUrlStr.length > 0)
     {
         [self loadImageWithUrlStr:announce.announceImageUrlStr]; //[self.bulletinImageView setImageWithURL:[NSURL URLWithString:announce.announceImageUrlStr]];
-        self.pictureData = UIImagePNGRepresentation(self.bulletinImageView.image);
+        self.pictureData = UIImageJPEGRepresentation(self.bulletinImageView.image,1.0);
     }
     else
     {
@@ -459,7 +459,6 @@
     {
         self.scheduleView.hidden = YES;
     }
-    
 }
 
 - (void) loadImageWithUrlStr:(NSString *)imageUrl
@@ -474,8 +473,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [self.bulletinImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        
-        
         [self.indicator removeFromSuperview];
         self.bulletinImageView.image = image;
         
@@ -628,6 +625,7 @@
                                         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
                                         {
                                             self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                            //self.picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
                                             self.picker.modalPresentationStyle = UIModalPresentationCurrentContext;
                                             [self presentViewController:self.picker animated:YES completion:NULL];
                                         }
@@ -1119,7 +1117,8 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    self.pictureData = UIImagePNGRepresentation(self.bulletinImageView.image);
+    //self.pictureData = UIImagePNGRepresentation(self.bulletinImageView.image);
+    self.pictureData = UIImageJPEGRepresentation(self.bulletinImageView.image,1.0);
     
     [self MakeMediaScrollViewProperSized];
     
